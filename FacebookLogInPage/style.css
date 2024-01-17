@@ -1,0 +1,106 @@
+body{
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+#main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 100px;
+    height: 100vh;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+#heading > h1{
+    color: #003cff;
+    font-size: 50px;
+}
+
+#heading > p{
+    font-size: 25px;
+}
+
+#login-form{
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: solid #f0f0f0;
+    box-shadow: 1px 1px 1px 1px #888888;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#login-form>form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input{
+    margin: 10px;
+    padding: 10px;
+    width:350px;
+    height:25px;
+    border-radius: 10px;
+    border-color: #f0f0f0;
+    border-style: solid;
+}
+#Create-acc-btn{
+    margin: 15px;
+    padding: 15px 10px 10px 10px;
+    border-top: solid;
+    border-color: #f0f0f0;
+    width: 325px;
+    text-align: center;
+}
+#Create-acc-btn>button{
+    margin: 10px;
+    padding: 10px;
+    width:225px;
+    height:50px;
+    border-radius: 10px;
+    background-color: #45CE30;
+    color: #f0f0f0;
+    font-size: 20px;
+    font-weight: bold;
+    border: hidden;
+}
+#Create-acc-btn>button:hover{
+    background-color: #43BE31;
+}
+
+
+::placeholder{
+    font-size: 20px;
+}
+#login-form>form>button{
+    margin: 10px;
+    padding: 10px;
+    width:375px;
+    height:50px;
+    border-radius: 10px;
+    background-color: #003cff;
+    color: #f0f0f0;
+    font-size: 20px;
+    font-weight: bold;
+    border: hidden;
+}
+#login-form>form>button:hover{
+    background-color: #4834DF;
+}
+a{
+    text-decoration: none;
+    font-size: 18px;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+@media (max-width:800px) {
+    #main{
+        flex-direction: column;
+    }
+    
+}
