@@ -1,0 +1,19 @@
+body{
+    background-color: #0A3D62;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#clock{
+    height:100px;
+    width:250px;
+    background-color: #F3B63A;
+    text-decoration: solid;
+    font-size: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
