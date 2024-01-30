@@ -1,0 +1,12 @@
+body{
+    background: #f1f2f3;
+}
+
+.container{
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 10px;
+}

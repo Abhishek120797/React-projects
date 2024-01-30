@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <title>Music Player</title>
+</head>
+<body>
+    <div>
+        <audio src="./mp3/1.mp3">
+            <p><a href="./mp3.1.mp3">Download</a></p>
+        </audio>  
+    </div>
+    <!-- <div class="buttons">
+        <div class="forword">
+            <button id="forwardButton">Forward</button>
+        </div>
+        <div class="stop">
+            <button id="stopButton">Stop</button>
+        </div>
+        <div class="reverse">
+            <button id="reverseButton">Reverse</button>
+        </div>
+    </div> -->
+</body>
+<!-- <script>
+    const sourceTag = document.getElementById("source");
+    const audiotag = document.querySelector("audio")
+    const forwardButton = document.getElementById("forwardButton");
+    const stopButton = document.getElementById("stopButton");
+    const reverseButton = document.getElementById("reverseButton");
+
+    let fileNames = ["1.mp3","2.mp3","3.mp3","4.mp3","5.mp3"];
+
+    index =0;
+
+    //by default
+    sourceTag.setAttribute("src","mp3/"+fileNames[index]);
+
+    function forwardMusic(){
+        index = index + 1;
+        sourceTag.setAttribute("src","mp3/"+fileNames[index]);
+    }
+
+    function reverseMusic(){
+        index = index - 1;
+        sourceTag.setAttribute("src","mp3/"+fileNames[index]);
+    }
+
+    forwardButton.addEventListener('click',forwardMusic);
+    stopButton.addEventListener('click',stopMusic);
+    reverseButton.addEventListener('click',reverseMusic);
+
+</script> -->
+</html>
