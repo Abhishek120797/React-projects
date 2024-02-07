@@ -1,5 +1,5 @@
 body{
-    background: #f1f2f3;
+    background: #EAF0F1;
 }
 
 .container{
@@ -8,5 +8,23 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    column-gap: 10px;
+    justify-content: space-evenly;
+}
+.movie{
+    height: fit-content;
+    width: fit-content;
+    background-color:#1287A5;
+    margin:10px;
+    padding: 5px;
+    border: 2px solid #2B2B52;
+    box-sizing: content-box;
+}
+#search-container{
+    text-align: center;
+}
+input{
+    height: 50px;
+    width: 300px;
+    border-radius: 10px;
+    font-size: 25px;
 }

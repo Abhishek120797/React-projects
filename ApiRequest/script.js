@@ -3,7 +3,7 @@ let name = document.querySelector(".details h2");
 let followers = document.querySelector(".details h3");
 const button = document.querySelector("#getDetails");
 
-const requrl = "https://api.github.com/users/hiteshChoudhary";
+const requrl = "https://api.github.com/users/Abhishek120797";
 
 const xhr = new XMLHttpRequest();
 
@@ -16,7 +16,7 @@ button.addEventListener("click", () => {
       const data = JSON.parse(this.responseText);
       cardImage.setAttribute("src", data.avatar_url);
       name.innerText = data.name;
-      followers.innerText = `Followers : ${data.followers}`;
+      followers.innerText = `Bio : ${data.bio}`;
     }
   };
 });
