@@ -29,6 +29,7 @@ function TodoItem({todo}) {
             checked={todo.completed}
             onChange={completeToggle}
         />
+        
         <input
             type="text"
             className={`border outline-none w-full bg-transparent rounded-lg ${
