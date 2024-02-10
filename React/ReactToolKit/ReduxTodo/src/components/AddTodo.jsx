@@ -9,8 +9,12 @@ const [input,setInput] = useState("")
 
 const addTodoHandler = (e)=>{
   e.preventDefault()
+  if(input!==""){
   dispatch(addTodo(input))
   setInput("")
+  }else{
+    alert("todo is empty! please write somthing")
+  }
 }
 
   return (
