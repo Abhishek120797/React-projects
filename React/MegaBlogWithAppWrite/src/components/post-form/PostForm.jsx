@@ -3,32 +3,32 @@ import {useForm} from 'react-hook-form';
 import {Button,Input,Select,RTE} from '../index'
 import appwriteService from '../../appwrite/config'
 import { useNavigate } from 'react-router-dom';
-import { UseSelector, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 
 function PostForm({post}) {
-    const {register,handleSubmit,watch,setValue,control,getValues}= useForm({
-        defaultValues:{
-            title:post?.title||"",
-            slug:slug?.slug||"",
-            content:post?.content||"",
-            status:post?.status||"active",
-        }
-    })
+    const {register,handleSubmit,watch,setValue,control,getValues} = useForm({
+        defaultValues: {
+            title: post?.title || "",
+            slug: post?.$id || "",
+            content: post?.content ||"",
+            status: post?.status || "active",
+        },
+    });
 
     const navigate = useNavigate()
-    const userData = useSelector(state => state.user.userData)
+    const userData = useSelector(state => state.userData) 
     
     const submit = async (data) => {
         if(post){
-            const file = data.image[0] ? appwriteService.uploadFile(data.image[0]) : null
+            const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null
 
             if(file){
                 appwriteService.deleteFile(post.featuredImage)
             }
 
-            const dbPost = await appwriteService.updatePost(post.$id,{...data,featuredImage:file?file.id:undefined})
+            const dbPost = await appwriteService.updatePost(post.$id,{...data,featuredImage:file ? file.$id : undefined})
 
             if(dbPost){
                 navigate(`/post/${dbPost.$id}`)
@@ -53,8 +53,8 @@ function PostForm({post}) {
             return value
             .trim()
             .toLowerCase()
-            .replace(/^[a-zA-Z\d\s]+/g,'-')
-            .replace(/[\s]/g,'-');
+            .replace(/[^a-zA-Z\d\s]+/g,'-')
+            .replace(/\s/g,'-');
         }
         return ''
     },[])
@@ -62,8 +62,7 @@ function PostForm({post}) {
    useEffect(()=>{
       const subscription = watch((value, {name})=>{
         if(name === 'title'){
-            setValue('slug',slugTransform(value.title,
-                {shouldValidate:true}))
+            setValue('slug',slugTransform(value.title),{ shouldValidate : true })
         }
       })
       
@@ -73,21 +72,21 @@ function PostForm({post}) {
    },[watch,slugTransform,setValue]) 
 
   return (
-    <form className="flex flex-wrap">
+    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
         <div className="w-2/3 px-2">
             
             <Input
             label ="Title :"
             placeholder = "Title"
             className="mb-4"
-            {...register("title",{ required:true })}
+            {...register("title",{ required : true })}
             />
 
             <Input
             label="Slug"
             placeholder="Slug"
             className="mb-4"
-            {...register("slug",{ required:true })}
+            {...register("slug",{ required : true })}
             onInput={(e)=>{
                 setValue("slug",slugTransform(e.currentTarget.value),
                 {shouldValidate:true})
@@ -107,9 +106,19 @@ function PostForm({post}) {
             label="Featured Image :"
             type="file"
             className="mb-4"
-            accept="image/png, image/jpg , image.jpeg, image/gif"
+            accept="image/png, image/jpg , image/jpeg, image/gif"
             {...register("image",{ required:!post })}
             />
+            
+            {post && (
+                    <div className="w-full mb-4">
+                        <img
+                            src={appwriteService.getFilePreview(post.featuredImage)}
+                            alt={post.title}
+                            className="rounded-lg"
+                        />
+                    </div>
+            )}
 
             <Select
             options={["active", "inactive"]}
@@ -122,7 +131,7 @@ function PostForm({post}) {
             type="submit" 
             bgColor={post ? "bg-green-500" : undefined} 
             className="w-full"
-            children={post?"update":"Submit"}
+            children={post ? "update" : "Submit"}
             />
         </div>
     </form>

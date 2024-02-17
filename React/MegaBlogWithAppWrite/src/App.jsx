@@ -5,6 +5,7 @@ import './App.css'
 import authService from "./appwrite/auth"
 import { logIn, logOut } from './store/authSlice'
 import {Header, Footer} from './components'
+import { Outlet } from 'react-router-dom'
 
 function App() {
 
@@ -19,7 +20,11 @@ function App() {
       }else{
         dispatch(logOut())
       }
-    })                                   //write catch block
+    })
+    .catch((error) => {
+      console.error("Error fetching user data: ", error);
+      dispatch(logOut())
+    })                                  
     .finally(()=>{
       setLoading(false)
     })
@@ -30,12 +35,14 @@ function App() {
       <div className='w-full block'>
         <Header/>
         <main>
-          {/* todo: <Outlet/> */}    
+        <Outlet/>    
         </main>
         <Footer/>
       </div>
     </div>
-  ):null;    //improve false condition
+  ):(
+    <div>Loading...</div>
+  );
 }
 
 export default App

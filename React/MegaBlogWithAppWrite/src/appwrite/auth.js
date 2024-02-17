@@ -28,23 +28,21 @@ export class AuthService {
         return userAccount;
       }
     } catch (error) {
-      throw error;
+      console.log("Appwrite service :: createAccount:: error", error);
     }
   }
 
   async logIn({ email, password }) {
     try {
-      const logIn = await this.account.createEmailSession(email, password);
-      return logIn;
+      return await this.account.createEmailSession(email, password);
     } catch (error) {
-      throw error;
+      console.log("Appwrite service :: logIn:: error", error);
     }
   }
 
   async getCurrentUser() {
     try {
-      const session = await this.account.get();
-      return session;
+      return await this.account.get();
     } catch (error) {
       console.log("Appwrite service :: getCurrentUser:: error", error);
     }
