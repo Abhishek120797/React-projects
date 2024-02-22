@@ -15,7 +15,7 @@ export class Service {
     this.bucket = new Storage(this.client);
   }
 
-  async createPost(title, slug, content, featuredImage, status, userId) {
+  async createPost({ title, slug, content, featuredImage, status, userId }) {
     try {
       return await this.databases.createDocument(
         conf.appwriteDatabaseId,
@@ -48,7 +48,7 @@ export class Service {
         }
       );
     } catch (error) {
-      console.log("Apperite service :: createPost :: error", error);
+      console.log("Apperite service :: updatePost :: error", error);
     }
   }
 
@@ -61,12 +61,15 @@ export class Service {
       );
       return true;
     } catch (error) {
-      console.log("Apperite service :: createPost :: error", error);
+      console.log("Apperite service :: deletePost :: error", error);
       return false;
     }
   }
 
   async getPost(slug) {
+    if (!slug) {
+      return;
+    }
     try {
       return await this.databases.getDocument(
         conf.appwriteDatabaseId,
@@ -74,7 +77,7 @@ export class Service {
         slug
       );
     } catch (error) {
-      console.log("Apperite service :: createPost :: error", error);
+      console.log("Apperite service :: getPost :: error", error);
       return false;
     }
   }
@@ -87,7 +90,7 @@ export class Service {
         queries
       );
     } catch (error) {
-      console.log("Apperite service :: createPost :: error", error);
+      console.log("Apperite service :: getAllPost :: error", error);
       return false;
     }
   }
@@ -98,17 +101,17 @@ export class Service {
     try {
       this.bucket.createFile(conf.appwriteBucketId, ID.unique(), file);
     } catch (error) {
-      console.log("Apperite service :: createPost :: error", error);
+      console.log("Apperite service :: uploadFile :: error", error);
       return false;
     }
   }
 
   async deleteFile(fileId) {
     try {
-      await this.bucket.deleteFile(fileId);
+      await this.bucket.deleteFile(conf.appwriteBucketId, fileId);
       return true;
     } catch (error) {
-      console.log("Apperite service :: createPost :: error", error);
+      console.log("Apperite service :: deleteFile :: error", error);
       return false;
     }
   }

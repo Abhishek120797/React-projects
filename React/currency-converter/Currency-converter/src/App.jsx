@@ -5,23 +5,23 @@ import useCurrencyInfo from './hooks/useCurrencyInfo'
 function App() {
 
   const [amount,setAmount]= useState(0)
-  const [from,setfrom]=useState('usd')
-  const [to,setTo]=useState('inr')
+  const [fromCurrency,setfromCurrency]=useState('usd')
+  const [toCurrency,setToCurrency]=useState('inr')
   const [convertedAmount,setConvertedAmount]= useState(0)
 
-  const currencyInfo =useCurrencyInfo(from)
+  const currencyInfo =useCurrencyInfo(fromCurrency)
 
   const options = Object.keys(currencyInfo)
 
   const swap = ()=>{
-    setfrom(to)
-    setTo(from)
+    setfromCurrency(toCurrency)
+    setToCurrency(fromCurrency)
     setConvertedAmount(amount)
     setAmount(convertedAmount)
   }
 
   const convert = () =>{
-    setConvertedAmount(amount*currencyInfo[to])
+    setConvertedAmount(amount*currencyInfo[toCurrency])
   }
 
   return (
@@ -45,8 +45,8 @@ function App() {
                             amount={amount}
                             onAmountChange={(amount)=>setAmount(amount)}
                             currencyOptions={options}
-                            onCurrencyChange={(currency)=>setfrom(currency)}
-                            selectCurrency={from}
+                            onCurrencyChange={(currency)=>setfromCurrency(currency)}
+                            selectCurrency={fromCurrency}
                         />
                     </div>
                     <div className="relative w-full h-0.5">
@@ -63,8 +63,8 @@ function App() {
                             label="To"
                             amount={convertedAmount}
                             currencyOptions={options}
-                            onCurrencyChange={(currency)=>setTo(currency)}
-                            selectCurrency={to}
+                            onCurrencyChange={(currency)=>setToCurrency(currency)}
+                            selectCurrency={toCurrency}
                             amountDisable
                         />
                     </div>
@@ -73,7 +73,7 @@ function App() {
 
                       className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg"
                       >
-                        Convert {from.toUpperCase()} to {to.toUpperCase()}
+                        Convert {fromCurrency.toUpperCase()} to {toCurrency.toUpperCase()}
                     </button>
                 </form>
             </div>

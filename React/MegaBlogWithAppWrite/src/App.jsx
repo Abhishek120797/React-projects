@@ -22,12 +22,11 @@ function App() {
       }
     })
     .catch((error) => {
+      {console.log("test")}
       console.error("Error fetching user data: ", error);
       dispatch(logOut())
     })                                  
-    .finally(()=>{
-      setLoading(false)
-    })
+    .finally(()=>setLoading(false))
   },[])
 
   return !loading ? (
@@ -41,7 +40,9 @@ function App() {
       </div>
     </div>
   ):(
-    <div>Loading...</div>
+    <div className='flex justify-center items-center h-screen'>
+      <h1 className='bg-gray-200 p-8 rounded-lg'>Loading...</h1>
+      </div>
   );
 }
 
