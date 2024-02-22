@@ -21,6 +21,7 @@ function InputBox({
                 <input
                     id={amountInputId}
                     min={0}
+                    step={0.01}
                     className="outline-none w-full bg-transparent py-1.5"
                     type="number"
                     placeholder="Amount"
