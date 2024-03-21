@@ -1,6 +1,17 @@
 import React from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 function AboutMe() {
+
+const user = useOutletContext()
+  const social = user.social_handles.map((social)=>{
+    return {
+      link:social.url,
+      title:social.platform,
+      text:social.platform.slice(0,3)+"."
+    }
+  })
+
   return (
       <div className='h-[33rem] flex items-center space-x-12' >
 
@@ -24,19 +35,19 @@ function AboutMe() {
             <li>
               <p >Name</p>
 
-              <span className='text-white text-lg'>Drew Hays</span>
+              <span className='text-white text-lg'>{user.about.name}</span>
             </li>
 
             <li >
               <p >Phone Number</p>
 
-              <span className='text-white text-lg'>123. 456. 789. 01</span>
+              <span className='text-white text-lg'>{user.about.phoneNumber}</span>
             </li>
 
             <li >
               <p >Email Address</p>
 
-              <span className='text-white text-lg'>info@drew.com</span>
+              <span className='text-white text-lg'>{user.email}</span>
             </li>
 
             <li >
@@ -44,10 +55,9 @@ function AboutMe() {
 
               <div className='text-white text-lg'>
 
-                <a href="#"  title="Facebook">Fb.</a>
-                <a href="#"  title="Behance">Be.</a>
-                <a href="#"  title="Linkedin">Ln.</a>
-                <a href="#"  title="Dribbble">Dr.</a>
+                {social.map((socialdata)=>(
+                  <a href={socialdata.link}  title={socialdata.title} className='m-2'>{socialdata.text}</a>
+                ))}
 
               </div>
             </li>

@@ -1,65 +1,31 @@
-import React from 'react';
-import { useState } from 'react';
-
+import React,{useState} from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 function Project() {
 
-  const project = [
-    {
-      image:"./src/assets/images/project-1.jpg",
-      alt:"Project poster: Creative & experienced digital design studio",
-      link:"#",
-      heading:{
-        link:"#",
-        text:"Creative & experienced digital design studio",
-      },
-    },
-    {
-      image:"./src/assets/images/project-2.jpg",
-      alt:"Project poster: Front End Development & Maintenance",
-      link:"#",
-      heading:{
-        link:"#",
-        text:"Front End Development & Maintenance",
-      },
-    },
-    {
-      image:"./src/assets/images/project-3.jpg",
-      alt:"Project poster: Flutter Framework & Warframe Design",
-      link:"#",
-      heading:{
-        link:"#",
-        text:"Flutter Framework & Warframe Design",
-      },
-    },
-    {
-      image:"./src/assets/images/project-4.jpg",
-      alt:"Project poster: Full Web Development Project With JavaScript",
-      link:"#",
-      heading:{
-        link:"#",
-        text:"Full Web Development Project With JavaScript",
-      },
-    },
-    {
-      image:"./src/assets/images/project-5.jpg",
-      alt:"Project poster: Cloud Migration & AWS Services",
-      link:"#",
-      heading:{
-        link:"#",
-        text:"Cloud Migration & AWS Services",
-      },
-    },
-  ]
+  const user = useOutletContext()
 
-  const [currentSlide, setCurrentSlide] = useState(Math.floor(project.length/2)-1);
+  const projectData = user.projects.map((project)=>{
+    return {
+      image:project.image.url,
+      alt:project.description,
+      link:project.githuburl,
+      heading:{
+        link:project.githuburl,
+        text:project.title
+      }
+    }
+  })
   
+
+  const [currentSlide, setCurrentSlide] = useState(Math.floor(projectData.length/2)-1);
+
   const nextSlide = ()=>{
-    setCurrentSlide((prevSlide)=>(prevSlide === project.length-3 ? 0 : prevSlide+1))
+    setCurrentSlide((prevSlide)=>(prevSlide === projectData.length-3 ? 0 : prevSlide+1))
   }
 
   const prevSlide = ()=>{
-    setCurrentSlide((prevSlide)=>(prevSlide === 0 ? project.length - 3 : prevSlide-1))
+    setCurrentSlide((prevSlide)=>(prevSlide === 0 ? projectData.length - 3 : prevSlide-1))
   }
 
   return (
@@ -85,16 +51,16 @@ function Project() {
       <section className='mx-20 flex justify-center items-center gap-2'>
 
           <div className='flex items-center h-20 w-24'>
-            {currentSlide!==0 && <button onClick={prevSlide} className="bg-gray-black text-white px-4 py-2 rounded-md">
+            {currentSlide!==0 && <button onClick={prevSlide} className="bg-gray-black text-white px-4 py-2 rounded-md hover:bg-black hover:border hover:border-white">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
           </button>}
           </div>
 
-        <ul className='flex justify-center items-center'>
+        <ul className='flex justify-center items-center gap-3'>
 
-          {project.map((project,index)=>(
+          {projectData.map((project,index)=>(
 
             <li key={index} className={`group ${index >= currentSlide && index< currentSlide+3?'block':'hidden'}`}>
 
@@ -134,7 +100,7 @@ function Project() {
         </ul>
 
           <div className='flex items-center h-20 w-24'>
-          {currentSlide!== project.length-3 && <button onClick={nextSlide} className="bg-gray-black text-white px-4 py-2 rounded-md">
+          {currentSlide!== projectData.length-3 && <button onClick={nextSlide} className="bg-gray-black text-white px-4 py-2 rounded-md hover:bg-black hover:border hover:border-white">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>

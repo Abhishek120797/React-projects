@@ -1,7 +1,9 @@
 import React from 'react';
+import { useOutletContext } from 'react-router-dom';
 
-function Contact() {
+function Contact({userData}) {
 
+  const user = useOutletContext()
   return (
     <section className='mx-28 h-screen'>
         <div className='flex flex-col'>
@@ -50,9 +52,9 @@ function Contact() {
                   </div>
 
                   <div className='flex flex-col'>
-                    <span >869. 368. 456. 56</span>
+                    <span >{user.about.phoneNumber}</span>
 
-                    <span >789 (569) 126 35</span>
+                    <span >{user.about.phoneNumber}</span>
                   </div>
 
                 </li>
@@ -66,8 +68,7 @@ function Contact() {
 
                   <div className='flex flex-col'>
                     <address>
-                      30- 24 Newtown Rd, 
-                      Queens,NY 11103, USA
+                      {user.about.address}
                     </address>
                   </div>
 
@@ -80,9 +81,9 @@ function Contact() {
                   </div>
 
                   <div className='flex flex-col'>
-                    <span >info@drew.com</span>
+                    <span >{user.email}</span>
 
-                    <span >jobs@drew.com</span>
+                    <span >{user.email}</span>
                   </div>
 
                 </li>

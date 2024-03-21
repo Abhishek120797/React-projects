@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link , NavLink } from 'react-router-dom'
-import { useId } from 'react';
+
 
 function Header() {
 
@@ -31,6 +31,7 @@ function Header() {
     },
   ]
 
+
   return (
     <header className=' bg-black h-16 mx-16 my-4 p-2 flex justify-between'>
     
@@ -46,7 +47,7 @@ function Header() {
 
         {navLink.map((navLink,index)=>(
           <li key={index} className='p-1'>
-            <NavLink to={navLink.link} className={({isActive})=>`${isActive?"text-white":"text-gray-400"}`}>{navLink.text}</NavLink>
+            <NavLink to={navLink.link} className={({isActive})=>`hover:text-white ${isActive?"text-white":"text-gray-400"}`}>{navLink.text}</NavLink>
           </li>
         ))}
 

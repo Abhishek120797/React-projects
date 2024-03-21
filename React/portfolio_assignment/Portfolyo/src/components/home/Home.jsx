@@ -1,7 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { useOutletContext } from 'react-router-dom';
 
 function Home() {
+  
+  const user = useOutletContext()
+
   return (
     <div className='mx-24 px-4'>
       
@@ -12,7 +16,7 @@ function Home() {
             <h1 className='text-[5rem] text-white justify-start mb-28'>Get Your Product Identity From Me.</h1>
 
             <div className='flex justify-between space-x-10'>
-              <Link href="/" className='h-20 w-40 text-white bg-gray-black flex items-center justify-evenly hover:bg-black hover:border hover:border-white'>
+              <Link to="/" className='h-20 w-40 text-white bg-gray-black flex items-center justify-evenly hover:bg-black hover:border hover:border-white'>
                 <span>Download CV</span>
 
                 <span>
@@ -32,10 +36,10 @@ function Home() {
           <div className='justify-self-end flex flex-col items-center'>
 
             <div className=' mb-[-8rem]'>
-              <img src="./src/assets/images/hero-banner.jpg" alt="Drew Hays" className='rounded-full h-[500px] w-[400px] object-cover ' />
+              <img src={user.about.avatar.url} alt="Drew Hays" className='rounded-full h-[500px] w-[400px] object-cover ' />
             </div>
 
-            <span className='text-[3rem] text-white'>Drew Hays</span>
+            <span className='text-[3rem] text-white'>{user.about.name}</span>
 
           </div>
 

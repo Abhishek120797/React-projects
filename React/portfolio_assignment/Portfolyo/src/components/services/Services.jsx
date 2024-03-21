@@ -1,33 +1,18 @@
 import React from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 function Services() {
 
-  const services = [
-    {
-      image:"./src/assets/images/service-icon-1.svg",
+  const user = useOutletContext()
+
+  const serviceData = user.services.map((service)=>{
+    return {
+      image:service.image.url,
       alt:"service icon",
       link:"#",
-      text:"Web Development"
-    },
-    {
-      image:"./src/assets/images/service-icon-2.svg",
-      alt:"service icon",
-      link:"#",
-      text:"Digital Marketing"
-    },
-    {
-      image:"./src/assets/images/service-icon-3.svg",
-      alt:"service icon",
-      link:"#",
-      text:"Graphics Design"
-    },
-    {
-      image:"./src/assets/images/service-icon-4.svg",
-      alt:"service icon",
-      link:"#",
-      text:"Mobile Application"
-    },
-  ]
+      text:service.name
+    }
+  })
 
   return (
     <section className='h-screen flex flex-col justify-center'>
@@ -35,7 +20,7 @@ function Services() {
 
           <ul className='flex justify-evenly'>
 
-            {services.map((service,index)=>(
+            {serviceData.map((service,index)=>(
                <a key={index} href={service.link} className='relative group'>
                 <li className='h-52 w-44 border border-gray-black flex justify-center items-center'>
                   <div className='relative' >
