@@ -1,54 +1,50 @@
 import React from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 function SkillSet() {
+
+
+  const user = useOutletContext()
+
+  const skillSet = user.skills.map((skill)=>{
+    return {
+      skill:skill.name,
+      percent:skill.percentage,
+      image:skill.image.url
+    };
+  })
+
+
   return (
-    <div className='h-[33rem] flex items-center space-x-12'>
+    <div className='flex justify-center items-center'>
 
-      <div className='w-[30rem] flex flex-col space-y-4'>
+      <div className='flex flex-col justify-center items-center m-4 md:m-8'>
 
-        <h3 className='text-white text-4xl'>
+        <h3 className='text-2xl md:text-4xl text-white m-5 p-2'>
           We help to create visual strategies.
         </h3>
 
-        <p >
-          A very small stage in a vast cosmic arena great turbuslent clouds encyclo-paedia galactica star
-          stuff harvesting star light
-        </p>
+        <ul className='text-white text-lg flex flex-wrap justify-center items-center'>
 
-        <ul >
+          {skillSet.map((skill,index)=>(
+            <li key={index}>
+              <div className='flex flex-col justify-center items-center border border-gray-black m-1 p-1 h-56 w-44'>
 
-          <li>
-            <div >
-              <span >Website Development</span>
+                <span>{skill.skill}</span>
+                
+                <div>
+                  <img src={skill.image} alt="" />
+                </div>
 
-              <span>95%</span>
-            </div>
+                <span>{skill.percent + ' % '}</span>
 
-            <div >
-              <div ></div>
-            </div>
-          </li>
-
-          <li>
-            <div >
-              <span >Design UI & UX</span>
-
-              <span >85%</span>
-            </div>
-
-            <div >
-              <div></div>
-            </div>
-          </li>
+              </div>
+            </li>
+          ))}
 
         </ul>
 
       </div>
-
-      <figure >
-        <img src="../src/assets/images/skill-banner.jpg" alt="skill banner"
-          />
-      </figure>
 
     </div>
 

@@ -29,11 +29,11 @@ function Project() {
   }
 
   return (
-    <div className='h-screen'>
-      <section className='h-[9rem] my-14'>
+    <div className='m-2 p-2 md:m-10 md:p-10 h-[100vh]'>
+      <section className='h-[9rem]'>
         <div className='flex justify-around items-center border-t border-b border-gray-black h-full'>
 
-          <h2 className='text-5xl'>
+          <h2 className='md:text-5xl'>
             Let's Work Together On Your Next Project!
           </h2>
 
@@ -48,23 +48,25 @@ function Project() {
 
         </div>
       </section>
-      <section className='mx-20 flex justify-center items-center gap-2'>
+      <section className='mx-20 flex justify-center items-center gap-4'>
 
-          <div className='flex items-center h-20 w-24'>
-            {currentSlide!==0 && <button onClick={prevSlide} className="bg-gray-black text-white px-4 py-2 rounded-md hover:bg-black hover:border hover:border-white">
+{/* previous button */}
+          <div className='flex items-center h-6 w-6 md:h-20 md:w-24'>
+            <button onClick={prevSlide} className={`bg-gray-black text-white px-1 py-1 md:px-4 md:py-2 rounded-md hover:bg-black hover:border hover:border-white ${currentSlide===0 && "invisible"}`}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
-          </button>}
+          </button>
           </div>
 
-        <ul className='flex justify-center items-center gap-3'>
+{/* slides */}
+        <ul className='flex justify-center items-center gap-3 overflow-hidden min-w-[250px] min-h-[325px]'>
 
           {projectData.map((project,index)=>(
 
             <li key={index} className={`group ${index >= currentSlide && index< currentSlide+3?'block':'hidden'}`}>
 
-              <div className='h-[30rem] flex flex-col justify-center items-center'>
+              <div className='h-[30rem] min-w-[250px] min-h-[325px] flex flex-col justify-center items-center'>
 
                   <img src={project.image} alt={project.alt} className='h-[325px] group-hover:filter group-hover:brightness-50 transition duration-300'/>
 
@@ -81,8 +83,6 @@ function Project() {
 
                   </a>
                 
-                
-
                 <div className='flex flex-col justify-center items-center'>
                   <p >Web, Product</p>
 
@@ -99,12 +99,13 @@ function Project() {
 
         </ul>
 
-          <div className='flex items-center h-20 w-24'>
-          {currentSlide!== projectData.length-3 && <button onClick={nextSlide} className="bg-gray-black text-white px-4 py-2 rounded-md hover:bg-black hover:border hover:border-white">
+{/* Next button */}
+          <div className='flex items-center h-6 w-6 md:h-20 md:w-24'>
+          <button onClick={nextSlide} className={`bg-gray-black text-white px-1 py-1 md:px-4 md:py-2 rounded-md hover:bg-black hover:border hover:border-white ${currentSlide=== projectData.length-3 && "invisible"}`}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
-          </button>}
+          </button>
           </div>
 
       </section>

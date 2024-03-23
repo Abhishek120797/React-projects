@@ -13,15 +13,11 @@ const user = useOutletContext()
   })
 
   return (
-      <div className='h-[33rem] flex items-center space-x-12' >
+      <div className='flex flex-col md:flex-row justify-center items-center md:space-x-10 space-y-10' >
 
-        <figure >
-          <img src="./src/assets/images/about-banner.jpg" alt="about banner"/>
-        </figure>
+        <div className='mt-4 w-[20rem] md:w-[30rem] flex flex-col space-y-4'>
 
-        <div className='w-[30rem] flex flex-col space-y-4'>
-
-          <h2 className='text-white text-4xl'>
+          <h2 className='text-white text-xl md:text-4xl'>
             A very small stage in a vast cosmic.
           </h2>
 
@@ -30,7 +26,7 @@ const user = useOutletContext()
             stuff harvesting star light the carbon in our apple pies realm of the galaxies
           </p>
 
-          <ul className='grid grid-cols-2 gap-y-2'>
+          <ul className='grid grid-cols-1 md:grid-cols-2 gap-y-2'>
 
             <li>
               <p >Name</p>
@@ -66,6 +62,10 @@ const user = useOutletContext()
 
         </div>
 
+        <figure className=''>
+          <img src="./src/assets/images/about-banner.jpg" alt="about banner"/>
+        </figure>
+        
       </div>
   );
 }

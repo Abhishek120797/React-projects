@@ -43,11 +43,11 @@ function App() {
   return (
     <>
     {userData &&(
-      <>
+       <div className="flex flex-col min-h-screen">
       <Header/>
       <Outlet context={userData} />
       <Footer/>
-      </>
+      </div>
     )
     }
     </>

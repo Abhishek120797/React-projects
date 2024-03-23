@@ -7,13 +7,11 @@ function About() {
 
   const user = useOutletContext()
   return (
-    <section className='h-screen'>
-
-      <div className='flex flex-col justify-center items-center border-l border-r border-b border-gray-black mx-40 mt-11'>
+    <section className=''>
+      <div className=''>
         <AboutNavBar/>
         <Outlet context={user}/>
-      </div>
-
+        </div>
     </section>
   );
 }

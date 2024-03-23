@@ -15,14 +15,14 @@ function Services() {
   })
 
   return (
-    <section className='h-screen flex flex-col justify-center'>
+    <section className='flex flex-col justify-center '>
         <div className='border-t border-b border-gray-black'>
 
-          <ul className='flex justify-evenly'>
+          <ul className='flex flex-col items-center md:flex-row md:justify-evenly flex-wrap'>
 
             {serviceData.map((service,index)=>(
                <a key={index} href={service.link} className='relative group'>
-                <li className='h-52 w-44 border border-gray-black flex justify-center items-center'>
+                <li className='h-80 w-72 border border-gray-black flex justify-center items-center'>
                   <div className='relative' >
 
                     <div className=''>
