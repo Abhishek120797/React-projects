@@ -66,7 +66,7 @@ const user = useOutletContext()
         </div>
 
         <figure >
-          <img src="./src/assets/images/about-banner.jpg" alt="about banner"/>
+          <img src="./about-banner.jpg" alt="about banner"/>
         </figure>
         
       </div>

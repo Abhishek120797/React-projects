@@ -60,8 +60,8 @@ function Home() {
 
 {/* shape image */}
         <div className='absolute top-24 z-[-1]'>
-          <img src="./src/assets/images/hero-shape-1.png" alt="shape" />
-          <img src="./src/assets/images/hero-shape-2.png" alt="shape" />
+          <img src="./hero-shape-1.png" alt="shape" />
+          <img src="./hero-shape-2.png" alt="shape" />
         </div>
         
 

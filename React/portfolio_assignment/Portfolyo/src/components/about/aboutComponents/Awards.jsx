@@ -4,15 +4,15 @@ function Awards() {
 
   const certificate = [
     {
-      image:"../src/assets/images/awward-1.jpg",
+      image:"../awward-1.jpg",
       alt:"certificate",
     },
     {
-      image:"../src/assets/images/awward-2.jpg",
+      image:"../awward-2.jpg",
       alt:"certificate",
     },
     {
-      image:"../src/assets/images/awward-3.jpg",
+      image:"../awward-3.jpg",
       alt:"certificate",
     },
   ]

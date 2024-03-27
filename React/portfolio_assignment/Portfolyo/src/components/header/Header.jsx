@@ -44,7 +44,7 @@ function Header() {
           <div className='m-1 p-1  flex justify-center items-center'>
 
             <Link to="/">
-              <img src="../src/assets/images/logo.svg" className=''/>
+              <img src="./logo.svg" className=''/>
             </Link>
 
           </div>

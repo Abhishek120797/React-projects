@@ -56,7 +56,7 @@ function Contact({userData}) {
                 <li className='flex flex-col md:flex-row justify-between m-1 p-1 md:m-2 md:p-2 gap-6'>
 
                   <div >
-                    <img src="./src/assets/images/contact-icon-1.png" 
+                    <img src="./contact-icon-1.png" 
                       />
                   </div>
 
@@ -69,7 +69,7 @@ function Contact({userData}) {
                 <li className='flex flex-col md:flex-row justify-between m-1 p-1 md:m-2 md:p-2 gap-6'>
 
                   <div >
-                    <img src="./src/assets/images/contact-icon-2.png"
+                    <img src="./contact-icon-2.png"
                       />
                   </div>
 
@@ -84,7 +84,7 @@ function Contact({userData}) {
                 <li className='flex flex-col md:flex-row justify-between m-1 p-1 md:m-2 md:p-2 gap-6'>
 
                   <div >
-                    <img src="./src/assets/images/contact-icon-3.png"/>
+                    <img src="./contact-icon-3.png"/>
                   </div>
 
                   <div>

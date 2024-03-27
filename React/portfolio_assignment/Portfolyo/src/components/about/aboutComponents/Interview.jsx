@@ -4,15 +4,15 @@ function Interview() {
 
   const interview = [
     {
-      image:"../src/assets/images/interview-1.jpg",
+      image:"../interview-1.jpg",
       alt:"interview 1",
     },
     {
-      image:"../src/assets/images/interview-2.jpg",
+      image:"../interview-2.jpg",
       alt:"interview 1",
     },
     {
-      image:"../src/assets/images/interview-3.jpg",
+      image:"../interview-3.jpg",
       alt:"interview 1",
     }
   ]

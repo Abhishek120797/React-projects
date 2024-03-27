@@ -4,27 +4,27 @@ function Exhibition() {
 
   const exhibitioon = [
     {
-      image:"../src/assets/images/exhibition-1.jpg",
+      image:"../exhibition-1.jpg",
       alt:"image",
     },
     {
-      image:"../src/assets/images/exhibition-2.jpg",
+      image:"../exhibition-2.jpg",
       alt:"video",
     },
     {
-      image:"../src/assets/images/exhibition-3.jpg",
+      image:"../exhibition-3.jpg",
       alt:"music",
     },
     {
-      image:"../src/assets/images/exhibition-4.jpg",
+      image:"../exhibition-4.jpg",
       alt:"image",
     },
     {
-      image:"../src/assets/images/exhibition-5.jpg",
+      image:"../exhibition-5.jpg",
       alt:"image",
     },
     {
-      image:"../src/assets/images/exhibition-6.jpg",
+      image:"../exhibition-6.jpg",
       alt:"image",
     },
   ]
