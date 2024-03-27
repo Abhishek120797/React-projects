@@ -12,6 +12,7 @@ function App() {
 
   useEffect(()=>{
 
+    
     ;(async ()=>{
 
       try {
@@ -43,11 +44,13 @@ function App() {
   return (
     <>
     {userData &&(
-       <div className="flex flex-col min-h-screen">
-      <Header/>
-      <Outlet context={userData} />
-      <Footer/>
-      </div>
+      <>
+        <Header/>
+        <main className='pt-[96px]'>
+        <Outlet context={userData} />
+        </main>
+        <Footer/>
+      </>
     )
     }
     </>

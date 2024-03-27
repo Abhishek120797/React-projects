@@ -16,27 +16,29 @@ function SkillSet() {
 
 
   return (
-    <div className='flex justify-center items-center'>
+    <div >
 
-      <div className='flex flex-col justify-center items-center m-4 md:m-8'>
+      <div className='flex flex-col items-center gap-4 m-10 p-4'>
 
-        <h3 className='text-2xl md:text-4xl text-white m-5 p-2'>
+        <h3 className='text-2xl md:text-3xl lg:text-5xl' >
           We help to create visual strategies.
         </h3>
 
-        <ul className='text-white text-lg flex flex-wrap justify-center items-center'>
+        <ul className='flex flex-wrap justify-center items-center'>
 
           {skillSet.map((skill,index)=>(
-            <li key={index}>
-              <div className='flex flex-col justify-center items-center border border-gray-black m-1 p-1 h-56 w-44'>
+            <li key={index}
+            className='border border-gray-black flex justify-center items-center m-2 p-1'
+            >
+              <div className='flex flex-col items-center m-1 p-1'>
 
-                <span>{skill.skill}</span>
+                <span className='text-xl'>{skill.skill}</span>
                 
-                <div>
+                <div className='h-52 w-52'>
                   <img src={skill.image} alt="" />
                 </div>
 
-                <span>{skill.percent + ' % '}</span>
+                <span className='text-lg'>{skill.percent + ' % '}</span>
 
               </div>
             </li>

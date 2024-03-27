@@ -8,10 +8,8 @@ function About() {
   const user = useOutletContext()
   return (
     <section className=''>
-      <div className=''>
         <AboutNavBar/>
         <Outlet context={user}/>
-        </div>
     </section>
   );
 }

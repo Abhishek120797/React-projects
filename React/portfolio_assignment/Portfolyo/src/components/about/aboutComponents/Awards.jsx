@@ -18,14 +18,14 @@ function Awards() {
   ]
 
   return (
-    <div className='m-10 flex flex-col gap-8'>
+    <div className='flex flex-col items-center gap-4 m-10 p-10'>
 
-      <h3 className='text-xl md:text-4xl text-white'>
+      <h3 className='text-2xl md:text-3xl lg:text-4xl text-center'>
         We’re a team of creatives who are excited about unique ideas and help IT-tech companies to make identity
         by crafting UI/UX.
       </h3>
 
-      <ul className='flex flex-col flex-wrap lg:flex-nowrap md:flex-row justify-center items-center gap-6'>
+      <ul className='flex flex-col flex-wrap md:flex-row justify-center items-center gap-6'>
 
         {certificate.map((certificate,index)=>(
           <li key={index}>

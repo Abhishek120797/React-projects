@@ -15,30 +15,32 @@ function Services() {
   })
 
   return (
-    <section className='flex flex-col justify-center '>
-        <div className='border-t border-b border-gray-black'>
+    <section className=''>
+        <div className='m-1 p-1 md:m-4 md:p-4 min-h-screen flex flex-col md:justify-center items-center'>
 
-          <ul className='flex flex-col items-center md:flex-row md:justify-evenly flex-wrap'>
+          <ul className='flex flex-col md:flex-row md:flex-wrap justify-center items-center'>
 
             {serviceData.map((service,index)=>(
-               <a key={index} href={service.link} className='relative group'>
-                <li className='h-80 w-72 border border-gray-black flex justify-center items-center'>
-                  <div className='relative' >
 
-                    <div className=''>
+               <a key={index} href={service.link}>
+                <li className='group border border-gray-black m-2'>
+
+                  <div className='h-72 w-72 md:h-60 md:w-60  m-2 p-2 flex justify-center items-center'>
+
+                    <div className='group-hover:hidden'>
                       <img src={service.image}
-                        alt={service.alt} className='block group-hover:hidden'/>
+                        alt={service.alt}/>
                     </div>
 
-                    <h3 className='hidden group-hover:block absolute  transform -translate-x-1/2 -translate-y-1/2 text-white'>
-                      
-                      {service.text}
-                      
-                    </h3>
-
+                    <div className=' hidden justify-center items-center group-hover:flex'>
+                      <h3 className='text-2xl text-white text-center'>{service.text}</h3>
+                    </div>
+                    
                   </div>
+
                 </li>
               </a>
+
             ))}
 
           </ul>

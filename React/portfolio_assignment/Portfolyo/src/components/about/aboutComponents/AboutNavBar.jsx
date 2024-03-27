@@ -30,12 +30,15 @@ function AboutNavBar() {
   const location = useLocation()
 
   return (
-    <nav className=''>
+    <nav >
 
-      <ul className='flex justify-center items-center flex-wrap '>
+      <ul className='flex flex-wrap justify-center'>
 
           {aboutNavLink.map((navLink,index)=>(
-            <NavLink key={index} to={navLink.link} className={`block text-white ${location.pathname === navLink.link?"bg-gray-black":"bg-black"}`} >
+            <NavLink key={index} 
+            to={navLink.link} 
+            className={`block text-white ${location.pathname === navLink.link?"bg-gray-black":"bg-black"}`}
+            >
               <li className='border border-gray-black p-2 w-28 h-14 md:w-60 md:h-20 flex justify-center items-center'>
               {navLink.text}
               </li>

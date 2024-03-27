@@ -19,19 +19,24 @@ function Interview() {
 
   return (
     
-      <div className='flex flex-col items-center justify-center m-2 md:flex-row gap-6'>
+      <div className=''>
 
-        {interview.map((interview,index)=>(
-          <div key={index} className='relative'>
+        <ul className='flex flex-col md:flex-row justify-center items-center gap-4 m-10 p-5'>
+          {interview.map((interview,index)=>(
 
-            <img src={interview.image} alt={interview.alt} className=""/>
+            <li key={index}>
+              <div className='relative flex justify-center items-center'>
 
-            <button className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-2 rounded-full w-12 h-12 text-black flex items-center justify-center hover:bg-transparent hover:border-white hover:font-bold border-2 border-transparent transition duration-300'>Play</button>
+                <img src={interview.image} alt={interview.alt} />
 
-          </div>
-        ))}
+                <button className='bg-white px-4 py-2 rounded-full w-12 h-12 text-black flex items-center justify-center hover:bg-transparent hover:border-white hover:font-bold border-2 border-transparent transition duration-300 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2' >Play</button>
 
+              </div>
+            </li>
+            
+          ))}
 
+        </ul>
       </div>
   );
 }

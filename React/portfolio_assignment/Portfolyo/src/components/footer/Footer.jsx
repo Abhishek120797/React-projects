@@ -3,12 +3,14 @@ import {Link} from 'react-router-dom'
 
 function Footer() {
   return (
-    <footer className='border-solid border-t-2 border-gray-black h-28 w-full flex justify-around items-center mt-auto'>
-        <div>
+    <footer className='h-20 flex justify-center items-center mt-auto border-t border-gray-black bg-black' >
+
+        <div className=''>
           <p>
             Copyright & Design By @codewithsadee - 2022
           </p>
         </div>
+
     </footer>
   );
 }

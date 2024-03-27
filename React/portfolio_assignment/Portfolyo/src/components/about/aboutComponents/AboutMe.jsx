@@ -52,7 +52,10 @@ const user = useOutletContext()
               <div className='text-white text-lg'>
 
                 {social.map((socialdata)=>(
-                  <a href={socialdata.link}  title={socialdata.title} className='m-2'>{socialdata.text}</a>
+                  <a href={socialdata.link}  
+                  title={socialdata.title} 
+                  className='m-2'
+                  >{socialdata.text}</a>
                 ))}
 
               </div>
@@ -62,7 +65,7 @@ const user = useOutletContext()
 
         </div>
 
-        <figure className=''>
+        <figure >
           <img src="./src/assets/images/about-banner.jpg" alt="about banner"/>
         </figure>
         

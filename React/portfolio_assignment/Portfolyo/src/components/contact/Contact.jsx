@@ -5,26 +5,35 @@ function Contact({userData}) {
 
   const user = useOutletContext()
   return (
-    <section className='flex flex-col justify-center'>
-        <div className='flex flex-col justify-center items-center flex-wrap gap-4 m-4 md:m-8'>
+    <section>
+        <div className='flex flex-col items-center m-2 p-2 gap-3'>
 
-          <h2 className='text-[1.5rem] md:text-[4rem] text-white'>Get In Touch</h2>
+          <h2 className='text-white text-2xl md:text-4xl lg:text-6xl'>Get In Touch</h2>
 
-          <div className='flex flex-col flex-wrap justify-center items-center md:flex-row md:justify-center md:items-center gap-4'>
+          <div className='flex flex-col md:flex-row flex-wrap justify-center items-center md:m-10 md:p-2'>
 
-            <form action="./index.html" method="post" className='flex flex-col justify-center items-center space-y-6  '>
+            <form action="./index.html" method="post" className='flex flex-col justify-center items-center space-y-6' >
 
-              <input className='bg-black text-xl border-b border-gray-black h-14 w-64  md:w-[450px] focus:outline-none focus:border-white' type="text" name="name" placeholder="Full name" autoComplete="off" required/>
+              <input  type="text" name="name" placeholder="Full name" autoComplete="off" required
+              className='bg-black text-xl border-b border-gray-black h-14 w-64  md:w-[450px] focus:outline-none focus:border-white'
+              />
 
-              <input className='bg-black text-xl border-b border-gray-black h-14 w-64 md:w-[450px] focus:outline-none focus:border-white' type="email" name="email_address" placeholder="Email address" autoComplete="off" required
+              <input  type="email" name="email_address" placeholder="Email address" autoComplete="off" required
+              className='bg-black text-xl border-b border-gray-black h-14 w-64  md:w-[450px] focus:outline-none focus:border-white'
                 />
 
-              <input className='bg-black text-xl border-b border-gray-black h-14 w-64 md:w-[450px] focus:outline-none focus:border-white' type="tel" name="phone" placeholder="Phone" autoComplete="off" />
+              <input  type="tel" name="phone" placeholder="Phone" autoComplete="off" 
+              className='bg-black text-xl border-b border-gray-black h-14 w-64  md:w-[450px] focus:outline-none focus:border-white'
+              />
 
-              <textarea className='bg-black text-xl border-b border-gray-black h-40 w-64 md:w-[450px] focus:outline-none focus:border-white' name="message" placeholder="Enter massges" required ></textarea>
+              <textarea  name="message" placeholder="Enter massges" required 
+              className='bg-black text-xl border-b border-gray-black h-40 w-64  md:w-[450px] focus:outline-none focus:border-white'
+              ></textarea>
 
-              <button type="submit" >
-                <div className='text-white bg-gray-black flex-none m-1 p-1 h-12 w-40 flex items-center justify-center hover:bg-black hover:border hover:border-white'>
+              <button type="submit" 
+              className='text-white bg-gray-black flex-none m-1 p-1 h-12 w-40 flex items-center justify-center hover:bg-black hover:border hover:border-white'
+              >
+                <div className='flex gap-1'>
                   <span>Get A Quote</span>
                   <span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -41,30 +50,30 @@ function Contact({userData}) {
               width="600" height="450" style={{"border": 0}} allowFullScreen="" loading="lazy"
               referrerPolicy="no-referrer-when-downgrade" className="map h-64 w-80 md:h-[450px] md:w-[600px] m-2 p-2"></iframe>
 
-            <div className='m-4 p-4 md:m-10 md:p-5'>
-              <ul className='flex flex-col space-y-10'>
+            <div className='m-1 p-1 md:m-2 md:p-2 flex justify-center items-center h-[450px] w-[350px]'>
+              <ul className='m-1 p-1 md:m-2 md:p-2 flex  flex-col justify-between'>
 
-                <li className='border-b border-gray-black flex justify-between'>
+                <li className='flex flex-col md:flex-row justify-between m-1 p-1 md:m-2 md:p-2 gap-6'>
 
-                  <div className='mb-6'>
+                  <div >
                     <img src="./src/assets/images/contact-icon-1.png" 
                       />
                   </div>
 
-                  <div className='flex flex-col'>
+                  <div >
                     <span >{user.about.phoneNumber}</span>
                   </div>
 
                 </li>
 
-                <li className=' border-b border-gray-black flex justify-between gap-10'>
+                <li className='flex flex-col md:flex-row justify-between m-1 p-1 md:m-2 md:p-2 gap-6'>
 
-                  <div className='mb-6'>
+                  <div >
                     <img src="./src/assets/images/contact-icon-2.png"
                       />
                   </div>
 
-                  <div className='flex flex-col'>
+                  <div >
                     <address>
                       {user.about.address}
                     </address>
@@ -72,13 +81,13 @@ function Contact({userData}) {
 
                 </li>
 
-                <li className='flex justify-between'>
+                <li className='flex flex-col md:flex-row justify-between m-1 p-1 md:m-2 md:p-2 gap-6'>
 
-                  <div className='mb-6'>
+                  <div >
                     <img src="./src/assets/images/contact-icon-3.png"/>
                   </div>
 
-                  <div className='flex flex-col'>
+                  <div>
                     <span >{user.email}</span>
                   </div>
 

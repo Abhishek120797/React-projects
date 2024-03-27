@@ -30,15 +30,17 @@ function Exhibition() {
   ]
 
   return (
-    <div className='m-16'>
-      <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6'>
+    <div className='flex flex-col items-center gap-4 m-10 p-4'>
+      <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 '>
 
       {exhibitioon.map((exhibition,index)=>(
-        <li key={index}>
-        <div >
+        <li key={index}
+        className='border border-gray-black'
+        >
+        <div className=''>
 
-          <figure>
-            <img src={exhibition.image} alt={exhibition.alt}/>
+          <figure className='h-52'>
+            <img src={exhibition.image} alt={exhibition.alt} className='h-full w-full object-cover'/>
           </figure>
 
         </div>
