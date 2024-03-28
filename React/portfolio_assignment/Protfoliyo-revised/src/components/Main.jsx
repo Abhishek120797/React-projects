@@ -3,7 +3,7 @@ import Hero from './Hero.jsx'
 import Service from './Service.jsx'
 import About from './About.jsx'
 import Project from './Project.jsx'
-import Testimonial from './Testimonial.jsx'
+import Testimonial from './Review.jsx'
 import Contact from './Contact.jsx'
 
 

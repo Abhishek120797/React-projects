@@ -38,7 +38,7 @@ function Contact({user}) {
             <li className="contact-item">
 
               <div className="item-icon">
-                <img src="./src/assets/images/contact-icon-1.png" width="50" height="50" loading="lazy"
+                <img src="./images/contact-icon-1.png" width="50" height="50" loading="lazy"
                   alt="contact icon"/>
               </div>
 
@@ -53,7 +53,7 @@ function Contact({user}) {
             <li className="contact-item">
 
               <div className="item-icon">
-                <img src="./src/assets/images/contact-icon-2.png" width="50" height="50" loading="lazy"
+                <img src="./images/contact-icon-2.png" width="50" height="50" loading="lazy"
                   alt="contact icon"/>
               </div>
 
@@ -68,7 +68,7 @@ function Contact({user}) {
             <li className="contact-item">
 
               <div className="item-icon">
-                <img src="./src/assets/images/contact-icon-3.png" width="50" height="50" loading="lazy"
+                <img src="./images/contact-icon-3.png" width="50" height="50" loading="lazy"
                   alt="contact icon"/>
               </div>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Testimonial({user}) {
+function Review({user}) {
 
 
   const review = user.testimonials.map((review)=>{
@@ -46,4 +46,4 @@ function Testimonial({user}) {
   );
 }
 
-export default Testimonial;
+export default Review;

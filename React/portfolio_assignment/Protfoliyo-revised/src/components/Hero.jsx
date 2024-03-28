@@ -8,7 +8,7 @@ function Hero({user}) {
   
             <div className="banner-outline has-after">
   
-              <div className="hero-banner img-holder has-after" style={{ '--width': '500px', '--height': '680px' }} data-tilt>
+              <div className="hero-banner img-holder has-after" style={{ '--width': '500px', '--height': '680px' }}>
                 <img src={user.about.avatar.url} width="500" height="680" alt="Drew Hays" className="img-cover"/>
               </div>
   

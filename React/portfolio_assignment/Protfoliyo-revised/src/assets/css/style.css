@@ -157,7 +157,7 @@ body {
   font-family: var(--fontFamily-roboto);
   font-size: var(--fontSize-8);
   line-height: 1.75;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 body.loaded { overflow-y: auto; }

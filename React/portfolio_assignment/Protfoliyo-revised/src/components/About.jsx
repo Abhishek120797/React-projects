@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 
 function About({user}) {
 
@@ -18,38 +19,92 @@ function About({user}) {
     };
   })
 
+  const interview = [
+    {
+      image:"./images/interview-1.jpg",
+      alt:"interview 1",
+    },
+    {
+      image:"./images/interview-2.jpg",
+      alt:"interview 1",
+    },
+    {
+      image:"./images/interview-3.jpg",
+      alt:"interview 1",
+    }
+  ]
 
+  const certificate = [
+    {
+      image:"./images/awward-1.jpg",
+      alt:"certificate",
+    },
+    {
+      image:"./images/awward-2.jpg",
+      alt:"certificate",
+    },
+    {
+      image:"./images/awward-3.jpg",
+      alt:"certificate",
+    },
+  ]
 
-const tabBtns = document.querySelectorAll("[data-tab-btn]");
-const tabContents = document.querySelectorAll("[data-tab-content]");
+  const exhibition = [
+    {
+      image:"./images/exhibition-1.jpg",
+      alt:"image",
+    },
+    {
+      image:"./images/exhibition-2.jpg",
+      alt:"video",
+    },
+    {
+      image:"./images/exhibition-3.jpg",
+      alt:"music",
+    },
+    {
+      image:"./images/exhibition-4.jpg",
+      alt:"image",
+    },
+    {
+      image:"./images/exhibition-5.jpg",
+      alt:"image",
+    },
+    {
+      image:"./images/exhibition-6.jpg",
+      alt:"image",
+    },
+  ]
 
-let lastActiveTabBtn = tabBtns[0];
-let lastActiveTabContent = tabContents[0];
+  const tabs = [
+    {
+      id:"about",
+      label:"About Me"
+    },
+    {
+      id:"skillset",
+      label:"Skillset"
+    },
+    {
+      id:"interview",
+      label:"Interview"
+    },
+    {
+      id:"awward",
+      label:"Awwards"
+    },
+    {
+      id:"exhibition",
+      label:"Exhibition"
+    },
+  ]
 
-const filterContent = function () {
-  if (!(lastActiveTabBtn === this)) {
-    lastActiveTabBtn.classList.remove("active");
-    lastActiveTabContent.classList.remove("active");
+  const [activeTab, setActiveTab] = useState('about');
 
-    this.classList.add("active");
-    lastActiveTabBtn = this;
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
 
-    const currentTabContent = document.querySelector(
-      `[data-tab-content="${this.dataset.tabBtn}"]`
-    );
-
-    currentTabContent.classList.add("active");
-    lastActiveTabContent = currentTabContent;
-  }
-};
-
-const addEventOnElements = function (elements, eventType, callback) {
-  for (let i = 0, len = elements.length; i < len; i++) {
-    elements[i].addEventListener(eventType, callback);
-  }
-};
-
-addEventOnElements(tabBtns, "click", filterContent);
 
   return (
     <section className="section about" aria-label="about-me" id="about">
@@ -58,33 +113,26 @@ addEventOnElements(tabBtns, "click", filterContent);
         <div className="tab-container">
 
           <ul className="tab-btn-list">
+          {tabs.map((tab,index)=>(
 
-            <li className="tab-btn-item">
-              <button className="tab-btn title h6 active" data-tab-btn="about">About Me</button>
+            <li key={index} className="tab-btn-item">
+            <button 
+            className={`tab-btn title h6 ${activeTab === tab.id ? 'active':''}`}
+            onClick={()=>handleTabClick(tab.id)} 
+            >
+              {tab.label}
+            </button>
             </li>
 
-            <li className="tab-btn-item">
-              <button className="tab-btn title h6" data-tab-btn="skillset">Skillset</button>
-            </li>
-
-            <li className="tab-btn-item">
-              <button className="tab-btn title h6" data-tab-btn="interview">Interview</button>
-            </li>
-
-            <li className="tab-btn-item">
-              <button className="tab-btn title h6" data-tab-btn="awward">Awwards</button>
-            </li>
-
-            <li className="tab-btn-item">
-              <button className="tab-btn title h6" data-tab-btn="exhibition">Exhibition</button>
-            </li>
+          ))}
+            
 
           </ul>
 
-          <div className="tab-content active" data-tab-content="about">
+          <div className={`tab-content ${activeTab === 'about' ? 'active':''}`}>
             <div className="grid-list">
 
-              <figure className="about-banner img-holder" style={{"--width":"570px", "--height":"420px" }}data-tilt>
+              <figure className="about-banner img-holder" style={{"--width":"570px", "--height":"420px" }}>
                 <img src="./images/about-banner.jpg" width="570" height="420" loading="lazy" alt="about banner"
                   className="img-cover"/>
               </figure>
@@ -142,7 +190,7 @@ addEventOnElements(tabBtns, "click", filterContent);
             </div>
           </div>
 
-          <div className="tab-content" data-tab-content="skillset">
+          <div className={`tab-content ${activeTab === 'skillset' ? 'active':''}`}>
             <div className="grid-list">
 
               <div className="skill-content">
@@ -174,7 +222,7 @@ addEventOnElements(tabBtns, "click", filterContent);
 
               </div>
 
-              <figure className="skill-banner img-holder" style={{ '--width': '570px', '--height': '420px' }} data-tilt>
+              <figure className="skill-banner img-holder" style={{ '--width': '570px', '--height': '420px' }} >
                 <img src="./images/skill-banner.jpg" width="570" height="420" loading="lazy" alt="skill banner"
                   className="img-cover"/>
               </figure>
@@ -182,34 +230,25 @@ addEventOnElements(tabBtns, "click", filterContent);
             </div>
           </div>
 
-          <div className="tab-content" data-tab-content="interview">
+          <div className={`tab-content ${activeTab === 'interview' ? 'active':''}`}>
             <div className="grid-list">
 
-              <div className="interview-card img-holder" style={{ '--width': '376px', '--height': '420px' }} data-tilt>
-                <img src="./images/interview-1.jpg" width="376" height="420" loading="lazy" alt="interview 1"
-                  className="img-cover"/>
+              {interview.map((interview,index)=>(
 
-                <button className="btn btn:hover">Play</button>
-              </div>
+                <div key={index} className="interview-card img-holder" style={{ '--width': '376px', '--height': '420px' }} >
+                  <img src={interview.image} width="376" height="420" loading="lazy" alt={interview.alt}
+                    className="img-cover"/>
 
-              <div className="interview-card img-holder" style={{ '--width': '376px', '--height': '420px' }} data-tilt>
-                <img src="./images/interview-2.jpg" width="376" height="420" loading="lazy" alt="interview 2"
-                  className="img-cover"/>
+                  <button className="btn btn:hover">Play</button>
+                </div>
 
-                <button className="btn btn:hover">Play</button>
-              </div>
+              ))}
 
-              <div className="interview-card img-holder" style={{ '--width': '376px', '--height': '420px' }} data-tilt>
-                <img src="./images/interview-3.jpg" width="376" height="420" loading="lazy" alt="interview 3"
-                  className="img-cover"/>
-
-                <button className="btn btn:hover">Play</button>
-              </div>
 
             </div>
           </div>
 
-          <div className="tab-content" data-tab-content="awward">
+          <div className={`tab-content ${activeTab === 'awward' ? 'active':''}`}>
 
             <h3 className="h4 title section-title">
               We’re a team of creatives who are excited about unique ideas and help IT-tech companies to make identity
@@ -218,129 +257,44 @@ addEventOnElements(tabBtns, "click", filterContent);
 
             <ul className="grid-list">
 
-              <li>
-                <div className="award-card">
-                  <figure className="card-banner img-holder" style={{ '--width': '534px', '--height': '383px' }} data-tilt>
-                    <img src="./images/awward-1.jpg" width="534" height="383" loading="lazy" alt="certificate"
-                      className="img-cover"/>
-                  </figure>
-                </div>
-              </li>
+              {certificate.map((awward,index)=>(
 
-              <li>
+                <li key={index}>
                 <div className="award-card">
-                  <figure className="card-banner img-holder" style={{ '--width': '534px', '--height': '383px' }} data-tilt>
-                    <img src="./images/awward-2.jpg" width="534" height="383" loading="lazy" alt="certificate"
+                  <figure className="card-banner img-holder" style={{ '--width': '534px', '--height': '383px' }} >
+                    <img src={awward.image} width="534" height="383" loading="lazy" alt={awward.alt}
                       className="img-cover"/>
                   </figure>
                 </div>
-              </li>
+                </li>
 
-              <li>
-                <div className="award-card">
-                  <figure className="card-banner img-holder" style={{ '--width': '534px', '--height': '383px' }} data-tilt>
-                    <img src="./images/awward-3.jpg" width="534" height="383" loading="lazy" alt="certificate"
-                      className="img-cover"/>
-                  </figure>
-                </div>
-              </li>
+              ))}
 
             </ul>
 
           </div>
 
-          <div className="tab-content" data-tab-content="exhibition">
+          <div className={`tab-content ${activeTab === 'exhibition' ? 'active':''}`}>
             <ul className="grid-list">
 
-              <li>
-                <div className="exhibition-card">
+              {exhibition.map((exhibition,index)=>(
 
-                  <figure className="card-banner img-holder" style={{ '--width': '376px', '--height': '200px' }} data-tilt>
-                    <img src="./images/exhibition-1.jpg" width="376" height="200" loading="lazy" alt="image"
-                      className="img-cover"/>
-                  </figure>
+                <li key={index}>
+                  <div className="exhibition-card">
 
-                  <div className="card-icon">
-                    <ion-icon name="image-outline" aria-hidden="true"></ion-icon>
+                    <figure className="card-banner img-holder" style={{ '--width': '376px', '--height': '200px' }} >
+                      <img src={exhibition.image} width="376" height="200" loading="lazy" alt={exhibition.alt}
+                        className="img-cover"/>
+                    </figure>
+
+                    <div className="card-icon">
+                      <ion-icon name="image-outline" aria-hidden="true"></ion-icon>
+                    </div>
+
                   </div>
+                </li>
 
-                </div>
-              </li>
-
-              <li>
-                <div className="exhibition-card">
-
-                  <figure className="card-banner img-holder" style={{ '--width': '376px', '--height': '200px' }} data-tilt>
-                    <img src="./images/exhibition-2.jpg" width="376" height="200" loading="lazy" alt="video"
-                      className="img-cover"/>
-                  </figure>
-
-                  <div className="card-icon">
-                    <ion-icon name="logo-youtube" aria-hidden="true"></ion-icon>
-                  </div>
-
-                </div>
-              </li>
-
-              <li>
-                <div className="exhibition-card">
-
-                  <figure className="card-banner img-holder" style={{ '--width': '376px', '--height': '200px' }} data-tilt>
-                    <img src="./images/exhibition-3.jpg" width="376" height="200" loading="lazy" alt="music"
-                      className="img-cover"/>
-                  </figure>
-
-                  <div className="card-icon">
-                    <ion-icon name="logo-soundcloud" aria-hidden="true"></ion-icon>
-                  </div>
-
-                </div>
-              </li>
-
-              <li>
-                <div className="exhibition-card">
-
-                  <figure className="card-banner img-holder" style={{ '--width': '376px', '--height': '200px' }} data-tilt>
-                    <img src="./images/exhibition-4.jpg" width="376" height="200" loading="lazy" alt="image"
-                      className="img-cover"/>
-                  </figure>
-
-                  <div className="card-icon">
-                    <ion-icon name="image-outline" aria-hidden="true"></ion-icon>
-                  </div>
-
-                </div>
-              </li>
-
-              <li>
-                <div className="exhibition-card">
-
-                  <figure className="card-banner img-holder" style={{ '--width': '376px', '--height': '200px' }} data-tilt>
-                    <img src="./images/exhibition-5.jpg" width="376" height="200" loading="lazy" alt="image"
-                      className="img-cover"/>
-                  </figure>
-
-                  <div className="card-icon">
-                    <ion-icon name="image-outline" aria-hidden="true"></ion-icon>
-                  </div>
-
-                </div>
-              </li>
-
-              <li>
-                <div className="exhibition-card">
-
-                  <figure className="card-banner img-holder" style={{ '--width': '376px', '--height': '200px' }} data-tilt>
-                    <img src="./images/exhibition-6.jpg" width="376" height="200" loading="lazy" alt="image"
-                      className="img-cover"/>
-                  </figure>
-
-                  <div className="card-icon">
-                    <ion-icon name="image-outline" aria-hidden="true"></ion-icon>
-                  </div>
-
-                </div>
-              </li>
+              ))}
 
             </ul>
           </div>
