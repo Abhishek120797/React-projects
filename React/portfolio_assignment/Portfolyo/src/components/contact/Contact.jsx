@@ -1,7 +1,7 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 
-function Contact({userData}) {
+function Contact() {
 
   const user = useOutletContext()
   return (
